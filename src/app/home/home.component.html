@@ -1,0 +1,37 @@
+<nav class="home-navbar">
+  <div class="logo">Foodiee<span>.co</span></div>
+  <div class="nav-actions">
+    <span class="profile-icon">👤</span>
+    <button (click)="logout()">Logout</button>
+  </div>
+</nav>
+
+<div class="home-content">
+  <div class="search-filter-bar">
+    <input type="text" placeholder="Search recipes..." [(ngModel)]="searchQuery" />
+  </div>
+
+  <div class="category-toggles">
+    <button *ngFor="let c of allCategories" (click)="selectCategory(c)"
+      [class.active]="selectedCategory === c || (c === 'All' && !selectedCategory)">
+      {{ c }}
+    </button>
+
+  </div>
+
+  <div class="food-grid">
+    <div class="food-card" *ngFor="let item of filteredItems()">
+      <img [src]="item.image" alt="Food image" />
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.description }}</p>
+      <div class="card-actions">
+        <button (click)="toggleSave(item.id)">
+          {{ isSaved(item.id) ? '💾 Saved' : '💾 Save' }}
+        </button>
+        <button (click)="toggleFavorite(item.id)">
+          {{ idFavorited(item.id) ? '❤️ Favorited' : '🤍 Favorite' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

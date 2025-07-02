@@ -1,0 +1,293 @@
+{
+  "foods": [
+    {
+      "id": 1,
+      "title": "Pancakes",
+      "description": "Fluffy pancakes topped with maple syrup and berries.",
+      "category": "Breakfast",
+      "image": "https://i.pinimg.com/736x/db/cf/e8/dbcfe8fc0888740fb884c860f799c3cd.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Omelette",
+      "description": "Cheese and veggie-loaded omelette.",
+      "category": "Breakfast",
+      "image": "https://i.pinimg.com/736x/76/38/b1/7638b1a73552df2de22dfe10e1572073.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Avocado Toast",
+      "description": "Crunchy toast topped with smashed avocado and seasoning.",
+      "category": "Breakfast",
+      "image": "https://i.pinimg.com/736x/15/1e/ef/151eef778a3480c6fabdb948a10fb7b9.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Grilled Cheese Sandwich",
+      "description": "Golden crispy grilled sandwich with melted cheese.",
+      "category": "Snacks",
+      "image": "https://i.pinimg.com/736x/80/30/72/8030727314b1b950376d0dc83e249add.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Chicken Burger",
+      "description": "Juicy grilled chicken patty with lettuce and mayo.",
+      "category": "Lunch",
+      "image": "https://i.pinimg.com/736x/3d/72/bc/3d72bc224939ece8783abd2c3344e46f.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Veggie Wrap",
+      "description": "Healthy wrap filled with grilled veggies and hummus.",
+      "category": "Lunch",
+      "image": "https://i.pinimg.com/736x/3e/14/53/3e1453c708c27e90332df05aee03ce75.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Spaghetti Bolognese",
+      "description": "Classic Italian pasta with a rich meat sauce.",
+      "category": "Dinner",
+      "image": "https://i.pinimg.com/736x/e1/41/b9/e141b90cf7bfef38bb0da9838ef7921a.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Butter Chicken",
+      "description": "Indian-style chicken curry with creamy tomato sauce.",
+      "category": "Dinner",
+      "image": "https://i.pinimg.com/736x/e4/ee/46/e4ee465f7c751cf7cd10fc00fc875679.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Margarita Pizza",
+      "description": "Stone-baked pizza with tomato, mozzarella, and basil.",
+      "category": "Dinner",
+      "image": "https://i.pinimg.com/736x/57/e7/a1/57e7a19334571946391a7430fcb86202.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Chocolate Cake",
+      "description": "Rich chocolate sponge with frosting.",
+      "category": "Dessert",
+      "image": "https://i.pinimg.com/736x/f2/c9/a4/f2c9a4f119aaa41b5b790a1effa8a791.jpg"
+    },
+    {
+      "id": 11,
+      "title": "Ice Cream Sundae",
+      "description": "Three scoops of ice cream topped with syrup and nuts.",
+      "category": "Dessert",
+      "image": "https://i.pinimg.com/736x/4c/ce/cb/4ccecbda1a3804d2b65b90b862b3ca4c.jpg"
+    },
+    {
+      "id": 12,
+      "title": "Fruit Salad",
+      "description": "Refreshing mix of seasonal fruits.",
+      "category": "Dessert",
+      "image": "https://i.pinimg.com/736x/a7/8d/db/a78ddb9404fb7777ff950932a15a967b.jpg"
+    },
+    {
+      "id": 13,
+      "title": "Nachos",
+      "description": "Crispy nachos with melted cheese and salsa.",
+      "category": "Snacks",
+      "image": "https://i.pinimg.com/736x/90/39/62/90396229334f0093da70943cc29613ef.jpg"
+    },
+    {
+      "id": 14,
+      "title": "Smoothie Bowl",
+      "description": "Berry smoothie bowl with granola and seeds.",
+      "category": "Breakfast",
+      "image": "https://i.pinimg.com/736x/dd/96/71/dd9671e9d04ebcd9e153b15c582b5bfd.jpg"
+    },
+    {
+      "id": 15,
+      "title": "Sushi Rolls",
+      "description": "Assorted sushi rolls with soy sauce and wasabi.",
+      "category": "Dinner",
+      "image": "https://i.pinimg.com/736x/e1/1b/83/e11b838229539c658deb28134ef7379c.jpg"
+    },
+    {
+      "id": 16,
+      "title": "Tacos",
+      "description": "Corn tortillas filled with meat, veggies, and salsa.",
+      "category": "Lunch",
+      "image": "https://i.pinimg.com/736x/f5/20/10/f52010f1acafbe3969cc567c41d44865.jpg"
+    },
+    {
+      "id": 17,
+      "title": "Garlic Bread",
+      "description": "Toasted bread with garlic butter and herbs.",
+      "category": "Snacks",
+      "image": "https://i.pinimg.com/736x/4f/09/22/4f0922594cf2910bfbb6dae58af75603.jpg"
+    },
+    {
+      "id": 18,
+      "title": "Falafel Bowl",
+      "description": "Chickpea patties with rice, salad, and tahini sauce.",
+      "category": "Lunch",
+      "image": "https://i.pinimg.com/736x/53/42/81/534281aa0d71567a45fe5ec6ea958a56.jpg"
+    },
+    {
+      "id": 19,
+      "title": "Pasta Alfredo",
+      "description": "Creamy alfredo sauce with penne pasta.",
+      "category": "Dinner",
+      "image": "https://i.pinimg.com/736x/f5/8b/02/f58b02db03d5e4b818c01bb271f86f32.jpg"
+    },
+    {
+      "id": 20,
+      "title": "Brownies",
+      "description": "Fudgy chocolate brownies with nuts.",
+      "category": "Dessert",
+      "image": "https://i.pinimg.com/736x/57/91/ed/5791edc7671745a98b1ecb263f65d831.jpg"
+    },
+    {
+    "id": 21,
+    "title": "Aloo Paratha",
+    "description": "Stuffed flatbread with spiced mashed potatoes, served with curd.",
+    "category": "Breakfast",
+    "image": "https://i.pinimg.com/736x/d9/77/9f/d9779fb9dcbe23ea71e253daa72358c3.jpg"
+  },
+  {
+    "id": 22,
+    "title": "Poha",
+    "description": "Flattened rice cooked with mustard seeds, turmeric, onions, and peas.",
+    "category": "Breakfast",
+    "image": "https://i.pinimg.com/736x/70/05/ed/7005eddd4478c851a030a76fcbeb067a.jpg"
+  },
+  {
+    "id": 23,
+    "title": "Idli Sambar",
+    "description": "Soft rice cakes served with spicy lentil-based vegetable stew.",
+    "category": "Breakfast",
+    "image": "https://i.pinimg.com/736x/58/3d/83/583d8321c3ad712a5d784147e471c3ac.jpg"
+  },
+  {
+    "id": 24,
+    "title": "Masala Dosa",
+    "description": "Crispy dosa filled with spicy mashed potatoes, served with chutney.",
+    "category": "Breakfast",
+    "image": "https://i.pinimg.com/736x/69/e9/6b/69e96b19c26f337f8b47257aa8e6ad25.jpg"
+  },
+  {
+    "id": 25,
+    "title": "Rajma Chawal",
+    "description": "Kidney beans cooked in gravy served over steamed rice.",
+    "category": "Lunch",
+    "image": "https://i.pinimg.com/736x/f6/7d/13/f67d13f82d372cbf8fe3a4f48f80975e.jpg"
+  },
+  {
+    "id": 26,
+    "title": "Dal Tadka",
+    "description": "Lentils tempered with garlic, cumin, and ghee — a comfort food classic.",
+    "category": "Lunch",
+    "image": "https://i.pinimg.com/736x/f2/82/44/f28244aedd093dc0e474ce1aba7861b8.jpg"
+  },
+  {
+    "id": 27,
+    "title": "Chole Bhature",
+    "description": "Spicy chickpeas served with deep-fried fluffy bread.",
+    "category": "Lunch",
+    "image": "https://i.pinimg.com/736x/fe/a6/a8/fea6a883cf2ff5f14dc4ef30e680986a.jpg"
+  },
+  {
+    "id": 28,
+    "title": "Mixed Veg Curry",
+    "description": "Seasonal vegetables cooked in Indian spices with gravy.",
+    "category": "Lunch",
+    "image": "https://i.pinimg.com/736x/0e/71/59/0e715939aedc11cc8f16be414482d60e.jpg"
+  },
+  {
+    "id": 29,
+    "title": "Fried Rice",
+    "description": "Basmati rice stir-fried with vegetables and sauces.",
+    "category": "Lunch",
+    "image": "https://i.pinimg.com/736x/11/de/a7/11dea79c0370fc5c9d8a0fbbbb88ad19.jpg"
+  },
+  {
+    "id": 30,
+    "title": "Paneer Butter Masala",
+    "description": "Soft paneer cubes in rich buttery tomato gravy.",
+    "category": "Dinner",
+    "image": "https://i.pinimg.com/736x/35/b3/a5/35b3a5ce12f09c64e1868af62a970dfc.jpg"
+  },
+  {
+    "id": 31,
+    "title": "Palak Paneer",
+    "description": "Spinach-based curry with chunks of paneer.",
+    "category": "Dinner",
+    "image": "https://i.pinimg.com/736x/0b/92/95/0b929550b0538bde5dd91330db24f017.jpg"
+  },
+  {
+    "id": 32,
+    "title": "Chicken Curry",
+    "description": "Home-style chicken cooked in onion-tomato gravy.",
+    "category": "Dinner",
+    "image": "https://i.pinimg.com/736x/cd/f8/37/cdf83760b6f38e6a2dd27a5b09c7ae57.jpg"
+  },
+  {
+    "id": 33,
+    "title": "Biryani",
+    "description": "Aromatic rice with spices and meat or veggies.",
+    "category": "Dinner",
+    "image": "https://i.pinimg.com/736x/c5/d2/62/c5d262f3377da91a7229772026a2ec5c.jpg"
+  },
+  {
+    "id": 34,
+    "title": "Chapati with Sabzi",
+    "description": "Whole wheat flatbread served with seasonal vegetables.",
+    "category": "Dinner",
+    "image": "https://i.pinimg.com/736x/13/78/7b/13787b60b309d19c9ed42537b3295258.jpg"
+  },
+  {
+    "id": 35,
+    "title": "Maggie Noodles",
+    "description": "Instant noodles cooked with vegetables and spices.",
+    "category": "Snacks",
+    "image": "https://i.pinimg.com/736x/39/a7/d0/39a7d04b6998e8b5d92554a5954fbbd6.jpg"
+  },
+  {
+    "id": 36,
+    "title": "Samosa",
+    "description": "Deep-fried pastry filled with spicy potato mix.",
+    "category": "Snacks",
+    "image": "https://i.pinimg.com/736x/b6/52/69/b652697587d8cdb73f5720f5df92927d.jpg"
+  },
+  {
+    "id": 37,
+    "title": "Pakora",
+    "description": "Crispy fritters made from gram flour and vegetables.",
+    "category": "Snacks",
+    "image": "https://i.pinimg.com/736x/9d/a9/1b/9da91b4280ae2d7332190a488c361dd7.jpg"
+  },
+  {
+    "id": 38,
+    "title": "Tea & Biscuits",
+    "description": "Indian-style chai with assorted biscuits.",
+    "category": "Snacks",
+    "image": "https://i.pinimg.com/736x/c1/3d/5d/c13d5df88bfcd046021d4c5249bc8477.jpg"
+  },
+  {
+    "id": 39,
+    "title": "Lassi",
+    "description": "Traditional yogurt-based drink, sweet or salted.",
+    "category": "Beverages",
+    "image": "https://i.pinimg.com/736x/ed/4f/17/ed4f170934a6903610456c6c263911d8.jpg"
+  },
+  {
+    "id": 40,
+    "title": "Lemon Water",
+    "description": "Refreshing drink made with lemon juice and chilled water.",
+    "category": "Beverages",
+    "image": "https://i.pinimg.com/736x/ab/22/04/ab2204dc37b8570318ed08340d61cbbe.jpg"
+  }
+  ],
+
+  "categories": [
+    "Breakfast",
+    "Lunch",
+    "Dinner",
+    "Dessert",
+    "Snacks",
+    "Beverages"
+  ]
+}
