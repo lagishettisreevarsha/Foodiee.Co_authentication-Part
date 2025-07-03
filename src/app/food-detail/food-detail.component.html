@@ -1,0 +1,25 @@
+<div *ngIf="foodItem" class="food-detail-container">
+  <button (click)="goBack()" class="back-btn">← Back to Home</button>
+
+  <div class="food-content">
+    <div class="left">
+      <img [src]="foodItem.image" alt="{{ foodItem.title }}" class="food-image" />
+    </div>
+
+    <div class="right">
+      <h2>{{ foodItem.title }}</h2>
+
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li *ngFor="let item of foodItem.ingredients">{{ item }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="description">
+    <h3>Cooking Steps</h3>
+    <p [innerText]="foodItem.description"></p>
+  </div>
+</div>

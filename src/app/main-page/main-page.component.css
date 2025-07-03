@@ -24,17 +24,17 @@
 
 /* Logo Styling (multi-level font style) */
 .logo {
-  font-size: 2.7rem;
-  font-family: 'Pacifico', cursive;
-  color: #fff;
-  text-shadow:
-    2px 2px 6px rgba(0, 0, 0, 0.7),   /* soft dark glow */
-    0 0 10px #ff7043,                 /* warm outer glow */
-    0 0 15px rgba(255, 112, 67, 0.6); /* extended soft glow */
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ff7043;
+  transition: color 0.3s ease;
+}
+.logo:hover {
+  color: #ff5722;
 }
 .logo span {
-  color: #ffa726;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+  color: #fff;
 }
 
 

@@ -153,3 +153,39 @@
 .card-actions button:hover {
   background-color: #ffe0d4;
 }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-icon {
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.nav-icon:hover {
+  transform: scale(1.2);
+}
+/* Full page background */
+.home-container {
+  background-image: url('https://i.pinimg.com/736x/99/33/9f/99339fb4abbdea1142f9eac7683a6be3.jpg'); /* or a full URL */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  backdrop-filter: brightness(0.9); /* Optional: darken for readability */
+  background-color: #fff4e6;
+}
+
+/* Add this to make inner content readable */
+.home-content {
+  background: rgba(255, 255, 255, 0.85); /* semi-transparent white */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}

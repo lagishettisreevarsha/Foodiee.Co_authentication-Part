@@ -1,37 +1,39 @@
 <nav class="home-navbar">
   <div class="logo">Foodiee<span>.co</span></div>
   <div class="nav-actions">
-    <span class="profile-icon">👤</span>
+    <span class="nav-icon" (click)="goToSaved()" title="Saved Recipes">💾</span>
+    <span class="nav-icon" (click)="goToFavorites()" title="Favorited Recipes">❤️</span>
+    <span class="nav-icon" (click)="goToProfile()" title="Your Profile">👤</span>
     <button (click)="logout()">Logout</button>
   </div>
 </nav>
-
+<div class="home-container">
 <div class="home-content">
   <div class="search-filter-bar">
     <input type="text" placeholder="Search recipes..." [(ngModel)]="searchQuery" />
   </div>
 
   <div class="category-toggles">
-    <button *ngFor="let c of allCategories" (click)="selectCategory(c)"
-      [class.active]="selectedCategory === c || (c === 'All' && !selectedCategory)">
-      {{ c }}
+    <button *ngFor="let c of allCategories"
+            (click)="selectCategory(c)"
+            [class.active]="selectedCategory === c || (c === 'All' && !selectedCategory)">
+      {{ c.name || c }}
     </button>
-
   </div>
 
   <div class="food-grid">
-    <div class="food-card" *ngFor="let item of filteredItems()">
+    <div class="food-card" *ngFor="let item of filteredItems()" (click)="goToFoodDetail(item.id)"  >
       <img [src]="item.image" alt="Food image" />
       <h3>{{ item.title }}</h3>
-      <p>{{ item.description }}</p>
       <div class="card-actions">
-        <button (click)="toggleSave(item.id)">
+        <button (click)="toggleSave(item.id); $event.stopPropagation()">
           {{ isSaved(item.id) ? '💾 Saved' : '💾 Save' }}
         </button>
-        <button (click)="toggleFavorite(item.id)">
+        <button (click)="toggleFavorite(item.id); $event.stopPropagation()" >
           {{ idFavorited(item.id) ? '❤️ Favorited' : '🤍 Favorite' }}
         </button>
       </div>
     </div>
   </div>
+</div>
 </div>

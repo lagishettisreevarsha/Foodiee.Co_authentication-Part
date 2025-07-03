@@ -30,6 +30,8 @@ export class MainPageComponent {
       email:['',[Validators.required]],
       password:['',[Validators.required]]
     })
+
+    
   }
 
   login(){
@@ -47,6 +49,8 @@ export class MainPageComponent {
       }
     }
   }
+
+  
   signup(){
     if (this.signupForm.valid){
       this.router.navigate(['/home'])
@@ -57,4 +61,11 @@ export class MainPageComponent {
     this.showLogin=false
     this.showSignup=false
   }
+
+  navigateHome(): void {
+  const user = localStorage.getItem('loggedInUser');
+  if (user) {
+    this.router.navigate(['/home']);
+  }
+}
 }

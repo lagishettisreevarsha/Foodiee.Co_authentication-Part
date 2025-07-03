@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FoodService } from '../food.service';
+import { ScrollService } from '../scroll.service';
 
 @Component({
   selector: 'app-home',
@@ -19,12 +20,18 @@ export class HomeComponent implements OnInit {
 
   savedItems = new Set<number>();
   favoritedItems = new Set<number>();
-  
-  constructor(private router: Router, private foodService: FoodService) {}
+
+  constructor(private router: Router, private foodService: FoodService,private scrollService: ScrollService) {}
+
+  scrollPosition = 0;
 
   ngOnInit() {
     this.foodService.getFoods().subscribe(data => {
       this.foodItems = data;
+
+      setTimeout(() => {
+      window.scrollTo(0, this.scrollService.getScrollPosition());
+    }, 0);
     });
 
     this.foodService.getCategories().subscribe(data => {
@@ -32,21 +39,22 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  toggleSave(id:number){
-    this.savedItems.has(id)? this.savedItems.delete(id) : this.savedItems.add(id)
+  toggleSave(id: number) {
+    this.savedItems.has(id) ? this.savedItems.delete(id) : this.savedItems.add(id);
   }
 
-  toggleFavorite(id:number){
-    this.favoritedItems.has(id)? this.favoritedItems.delete(id): this.favoritedItems.add(id)
+  toggleFavorite(id: number) {
+    this.favoritedItems.has(id) ? this.favoritedItems.delete(id) : this.favoritedItems.add(id);
   }
 
-  isSaved(id:number):boolean{
-    return this.savedItems.has(id)
-  } 
-
-  idFavorited(id:number):boolean{
-    return this.favoritedItems.has(id)
+  isSaved(id: number): boolean {
+    return this.savedItems.has(id);
   }
+
+  idFavorited(id: number): boolean {
+    return this.favoritedItems.has(id);
+  }
+
   logout() {
     this.router.navigate(['/']);
   }
@@ -57,12 +65,29 @@ export class HomeComponent implements OnInit {
       (!this.searchQuery || item.title.toLowerCase().includes(this.searchQuery.toLowerCase()))
     );
   }
-get allCategories(): string[] {
-  return ['All', ...this.categories];
+
+  get allCategories(): any[] {
+    return ['All', ...this.categories];
+  }
+
+  selectCategory(category: any) {
+    this.selectedCategory = (category.name || category) === 'All' ? '' : (category.name || category);
+  }
+
+  goToFoodDetail(id: number) {
+    this.scrollService.setScrollPosition(window.scrollY);
+    this.router.navigate(['/food', id]);
+  }
+  goToSaved() {
+  this.router.navigate(['/saved']);
 }
 
-  selectCategory(category: string) {
-  this.selectedCategory = category === 'All' ? '' : category;
+goToFavorites() {
+  this.router.navigate(['/favorites']);
+}
+
+goToProfile() {
+  this.router.navigate(['/profile']);
 }
 
 }
