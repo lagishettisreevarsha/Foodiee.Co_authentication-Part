@@ -1,5 +1,9 @@
 <nav class="home-navbar">
-  <div class="logo">Foodiee<span>.co</span></div>
+  <div class="logo">
+    <img src="https://i.pinimg.com/736x/f8/b3/9b/f8b39bfd85fc72062536b2abf9503563.jpg" alt="Foodiee Logo" class="logo-img" />
+    Foodiee<span>.co</span>
+  </div>
+
   <div class="nav-actions">
     <span class="nav-icon" (click)="goToSaved()" title="Saved Recipes">💾</span>
     <span class="nav-icon" (click)="goToFavorites()" title="Favorited Recipes">❤️</span>
@@ -7,6 +11,7 @@
     <button (click)="logout()">Logout</button>
   </div>
 </nav>
+
 <div class="home-container">
 <div class="home-content">
   <div class="search-filter-bar">

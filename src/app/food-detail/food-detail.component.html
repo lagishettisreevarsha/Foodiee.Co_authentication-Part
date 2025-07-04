@@ -1,25 +1,37 @@
-<div *ngIf="foodItem" class="food-detail-container">
-  <button (click)="goBack()" class="back-btn">← Back to Home</button>
-
-  <div class="food-content">
-    <div class="left">
-      <img [src]="foodItem.image" alt="{{ foodItem.title }}" class="food-image" />
+<div class="detail-page">
+  <!-- Navbar -->
+  <nav class="food-navbar">
+    <div class="logo" routerLink="/home">
+      <img src="https://i.pinimg.com/736x/f8/b3/9b/f8b39bfd85fc72062536b2abf9503563.jpg" alt="Foodiee Logo" class="logo-img" />
+      <span class="logo-text">Foodiee<span>.co</span></span>
     </div>
+  </nav>
 
-    <div class="right">
-      <h2>{{ foodItem.title }}</h2>
+  <div class="food-detail-container">
+    <button class="back-btn" (click)="goBack()">← Back to Home</button>
 
-      <div class="ingredients">
-        <h3>Ingredients</h3>
-        <ul>
-          <li *ngFor="let item of foodItem.ingredients">{{ item }}</li>
-        </ul>
+    <div class="food-content">
+      <!-- Left: Video -->
+      <div class="video-box">
+        <video controls [src]="foodItem?.video" class="food-video"></video>
+      </div>
+
+      <!-- Right: Ingredients -->
+      <div class="info-column">
+        <h2>{{ foodItem?.title }}</h2>
+        <div class="ingredients">
+          <h3>Ingredients</h3>
+          <ul>
+            <li *ngFor="let item of foodItem?.ingredients">{{ item }}</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="description">
-    <h3>Cooking Steps</h3>
-    <p [innerText]="foodItem.description"></p>
+    <!-- Cooking steps -->
+    <div class="description" *ngIf="foodItem?.description">
+      <h3>Cooking Steps</h3>
+      <p [innerHTML]="foodItem.description"></p>
+    </div>
   </div>
 </div>
