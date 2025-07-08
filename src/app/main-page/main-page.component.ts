@@ -1,71 +1,56 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterOutlet } from '@angular/router';
-import {trigger,transition,style,animate} from '@angular/animations';
-
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-main-page',
-  imports: [CommonModule,ReactiveFormsModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css'],
-  
+  styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent {
-  showLogin=false;
-  showSignup=false;
-  loginForm:FormGroup;
-  signupForm:FormGroup;
+  showLogin = false;
+  showSignup = false;
+  isLoginMode = true;
 
-  constructor(private formBuilder: FormBuilder,private router:Router){
-    
-    this.loginForm=this.formBuilder.group({
-      email:['',[Validators.required]],
-      password:['',[Validators.required]]
-    });
+  email = '';
+  password = '';
+  errorMsg = '';
 
-    this.signupForm=this.formBuilder.group({
-      name:['',[Validators.required]],
-      email:['',[Validators.required]],
-      password:['',[Validators.required]]
-    })
+  constructor(private userService: UserService, private router: Router) {}
 
-    
+  toggleMode() {
+    this.isLoginMode = !this.isLoginMode;
+    this.errorMsg = '';
   }
 
-  login(){
-    if (this.loginForm.valid){
-      const email=this.loginForm.value.email;
-      const password=this.loginForm.value.password
+  closeForm() {
+    this.showLogin = false;
+    this.showSignup = false;
+    this.isLoginMode = true;
+    this.email = '';
+    this.password = '';
+    this.errorMsg = '';
+  }
 
-      const hardcodedEmail = 'foodiee@gmail.com';
-      const hardcodedPassword = '123';
-
-      if (email===hardcodedEmail && password===hardcodedPassword){
-        this.router.navigate(['home'])
-      }else{
-        alert('Invalid email or password')
+  onSubmit() {
+    if (this.isLoginMode) {
+      const success = this.userService.login(this.email, this.password);
+      if (success) {
+        this.router.navigate(['/home']);
+      } else {
+        this.errorMsg = 'Invalid credentials!';
       }
+    } else {
+      this.userService.signup(this.email, this.password);
+      this.router.navigate(['/home']);
     }
   }
 
-  
-  signup(){
-    if (this.signupForm.valid){
-      this.router.navigate(['/home'])
-    }
+  navigateHome() {
+    this.router.navigate(['/']);
   }
-
-  closeForms(){
-    this.showLogin=false
-    this.showSignup=false
-  }
-
-  navigateHome(): void {
-  const user = localStorage.getItem('loggedInUser');
-  if (user) {
-    this.router.navigate(['/home']);
-  }
-}
 }

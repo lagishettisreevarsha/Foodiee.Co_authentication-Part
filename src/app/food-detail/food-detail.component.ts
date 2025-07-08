@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FoodService } from '../food.service';
+import { FoodService } from '../services/food.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-food-detail',
@@ -12,7 +13,7 @@ import { FoodService } from '../food.service';
 })
 export class FoodDetailComponent implements OnInit{
   foodItem:any;
-  constructor(private router: Router, private route: ActivatedRoute, private foodService: FoodService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private foodService: FoodService, private sanitizer: DomSanitizer) {}
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
@@ -26,4 +27,8 @@ export class FoodDetailComponent implements OnInit{
   this.router.navigate(['/home']);
 }
   
+getSafeYoutubeUrl(url: string): SafeResourceUrl {
+  const videoId = url.split('v=')[1] || url.split('youtu.be/')[1];
+  return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${videoId}`);
+}
 }

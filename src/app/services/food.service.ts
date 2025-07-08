@@ -6,6 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FoodService {
+  getSavedItemIds() {
+    throw new Error('Method not implemented.');
+  }
+  getFavoritedItemIds() {
+    throw new Error('Method not implemented.');
+  }
   private foodUrl = 'http://localhost:3000/foods';
   private categoryUrl = 'http://localhost:3000/categories';
 

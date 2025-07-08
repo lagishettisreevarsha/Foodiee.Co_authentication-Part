@@ -1,1 +1,16 @@
+<div class="navbar">
+  <div class="logo">Foodiee<span>.co</span></div>
+
+  <div class="nav-right">
+    <ng-container *ngIf="user; else guest">
+      <a routerLink="/profile">{{ user.email }}</a>
+      <button (click)="logout()">Logout</button>
+    </ng-container>
+
+    <ng-template #guest>
+      <button routerLink="/auth">Login / Signup</button>
+    </ng-template>
+  </div>
+</div>
+
 <router-outlet></router-outlet>

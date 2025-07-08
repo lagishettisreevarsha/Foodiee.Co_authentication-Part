@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FoodService } from '../food.service';
-import { ScrollService } from '../scroll.service';
+import { FoodService } from '../services/food.service';
+import { ScrollService } from '../services/scroll.service';
 
 @Component({
   selector: 'app-home',
@@ -17,21 +17,21 @@ export class HomeComponent implements OnInit {
   selectedCategory = '';
   foodItems: any[] = [];
   categories: string[] = [];
+  showChatbot = false;
 
   savedItems = new Set<number>();
   favoritedItems = new Set<number>();
 
-  constructor(private router: Router, private foodService: FoodService,private scrollService: ScrollService) {}
+  constructor(public router: Router, private foodService: FoodService, private scrollService: ScrollService) {}
 
   scrollPosition = 0;
 
   ngOnInit() {
     this.foodService.getFoods().subscribe(data => {
       this.foodItems = data;
-
       setTimeout(() => {
-      window.scrollTo(0, this.scrollService.getScrollPosition());
-    }, 0);
+        window.scrollTo(0, this.scrollService.getScrollPosition());
+      }, 0);
     });
 
     this.foodService.getCategories().subscribe(data => {
@@ -55,10 +55,6 @@ export class HomeComponent implements OnInit {
     return this.favoritedItems.has(id);
   }
 
-  logout() {
-    this.router.navigate(['/']);
-  }
-
   filteredItems() {
     return this.foodItems.filter(item =>
       (!this.selectedCategory || item.category === this.selectedCategory) &&
@@ -71,23 +67,28 @@ export class HomeComponent implements OnInit {
   }
 
   selectCategory(category: any) {
-    this.selectedCategory = (category.name || category) === 'All' ? '' : (category.name || category);
+    const cat = category.name || category;
+    this.selectedCategory = cat === 'All' ? '' : cat;
   }
 
   goToFoodDetail(id: number) {
     this.scrollService.setScrollPosition(window.scrollY);
     this.router.navigate(['/food', id]);
   }
+
   goToSaved() {
-  this.router.navigate(['/saved']);
-}
+    this.router.navigate(['/saved']);
+  }
 
-goToFavorites() {
-  this.router.navigate(['/favorites']);
-}
+  goToFavorites() {
+    this.router.navigate(['/favorites']);
+  }
 
-goToProfile() {
-  this.router.navigate(['/profile']);
-}
+  goToProfile() {
+    this.router.navigate(['/profile']);
+  }
 
+  goToChatbot() {
+    this.router.navigate(['/chatbot']);
+  }
 }

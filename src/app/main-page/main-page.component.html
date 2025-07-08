@@ -9,13 +9,13 @@
   <!-- ------------------- Navbar ------------------- -->
   <nav class="navbar">
     <div class="logo" (click)="navigateHome()">
-      <img src="https://i.pinimg.com/736x/f8/b3/9b/f8b39bfd85fc72062536b2abf9503563.jpg" alt="Foodiee Logo" class="logo-img" />
-      <span class="logo-text">Foodiee<span>.co</span></span>
+      <img src="https://res.cloudinary.com/dhzzlikgi/image/upload/v1751894492/d2568c83e1edc3c7a5b9aaf6b575f7d9-removebg_ndoqth.png" alt="Foodiee Logo" class="logo-img" />
+      <span>Foodiee<span>.co</span></span>
     </div>
 
     <div class="nav-buttons">
-      <button (click)="showLogin = true; showSignup = false">Login</button>
-      <button (click)="showSignup = true; showLogin = false">Signup</button>
+      <button (click)="showLogin = true; showSignup = false; isLoginMode = true">Login</button>
+      <button (click)="showSignup = true; showLogin = false; isLoginMode = false">Signup</button>
     </div>
   </nav>
 
@@ -26,27 +26,22 @@
       Join now to save recipes, share your own, and explore food like never before.</p>
   </div>
 
-  <!-- ------------------- Auth Container ------------------- -->
-  <div class="auth-container" *ngIf="showLogin || showSignup">
-    <button class="back-btn" (click)="closeForms()">← Back</button>
+  <!-- ------------------- Auth Box ------------------- -->
+  <div class="auth-box" *ngIf="showLogin || showSignup">
+    <button class="back-btn-top" (click)="closeForm()">✕</button>
+    <h2>{{ isLoginMode ? 'Login' : 'Signup' }}</h2>
 
-    <!-- Login Form -->
-    <form *ngIf="showLogin" (ngSubmit)="login()" [formGroup]="loginForm">
-      <h1>Login</h1>
-      <p>Welcome back! Please login to continue.</p>
-      <input formControlName="email" placeholder="Enter Your Email" />
-      <input type="password" formControlName="password" placeholder="Password" />
-      <button type="submit">Login</button>
+    <form (ngSubmit)="onSubmit()">
+      <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required />
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required />
+      <button type="submit">{{ isLoginMode ? 'Login' : 'Signup' }}</button>
     </form>
 
-    <!-- Signup Form -->
-    <form *ngIf="showSignup" (ngSubmit)="signup()" [formGroup]="signupForm">
-      <h1>Sign Up</h1>
-      <p>Join Foodiee.co today – it's fast and free!</p>
-      <input formControlName="name" placeholder="Enter Your Name" />
-      <input formControlName="email" placeholder="Enter Your Email" />
-      <input type="password" formControlName="password" placeholder="Password" />
-      <button type="submit">Sign Up</button>
-    </form>
+    <p class="toggle">
+      {{ isLoginMode ? 'Don\'t have an account?' : 'Already have an account?' }}
+      <span (click)="toggleMode()">{{ isLoginMode ? 'Sign up' : 'Login' }}</span>
+    </p>
+
+    <p *ngIf="errorMsg" class="error">{{ errorMsg }}</p>
   </div>
 </div>

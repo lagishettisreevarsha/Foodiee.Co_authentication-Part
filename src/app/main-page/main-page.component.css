@@ -1,146 +1,183 @@
-/* ------------------------ GLOBAL LOGO ------------------------ */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  text-decoration: none;
+/* ----------------- Background Video ----------------- */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.85);
 }
 
-.logo-img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  border-radius: 6px;
+/* ----------------- Overlay Wrapper ----------------- */
+.overlay {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  color: white;
 }
 
-.logo-text {
-  font-size: 32px;
-  font-weight: 800;
-  color: #ff7043; /* Foodiee orange */
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.logo-text span {
-  color: #333; /* .co darker */
-}
-
-/* ------------------------ MAIN LANDING PAGE ------------------------ */
+/* ----------------- Navbar ----------------- */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 2rem;
-  color: white;
-  position: relative;
-  z-index: 2;
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+}
+
+.logo span {
+  color: #ff6b3d;
+}
+
+.logo-img {
+  height: 42px;
+  margin-right: 10px;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.5));
 }
 
 .nav-buttons button {
-  margin-left: 10px;
-  padding: 0.6rem 1.2rem;
+  background-color: #ff6b3d;
+  color: white;
+  padding: 10px 16px;
   border: none;
   border-radius: 8px;
-  background: #ff7043;
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .nav-buttons button:hover {
-  background: #ff5722;
+  background-color: #e85b2a;
 }
 
-#bg-video {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  filter: brightness(0.8);
-}
-
-.overlay {
-  position: relative;
-  z-index: 1;
-}
-
+/* ----------------- Intro Text ----------------- */
 .intro-text {
   text-align: center;
-  color: white;
-  margin-top: 30vh;
-  font-family: 'Segoe UI', sans-serif;
+  margin-top: 20vh;
 }
 
 .intro-text h1 {
   font-size: 3rem;
-  font-weight: bold;
-  text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+  margin-bottom: 1rem;
+  color: #fff;
 }
 
 .intro-text p {
   font-size: 1.2rem;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  max-width: 600px;
+  margin: 0 auto;
+  color: #f9f9f9;
 }
 
-.auth-container {
-  max-width: 400px;
+/* ----------------- Glass Auth Box ----------------- */
+.auth-box {
+  position: relative;
+  max-width: 360px;
   margin: 5vh auto;
   padding: 2rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   text-align: center;
-  color: white;
+  color: #fff;
 }
 
-.auth-container input {
-  display: block;
+/* ----------------- Heading ----------------- */
+.auth-box h2 {
+  color: #ffe3c2;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* ----------------- Inputs ----------------- */
+.auth-box input {
   width: 100%;
-  margin-bottom: 1.2rem;
-  padding: 0.85rem 1rem;
-  border: none;
+  padding: 12px;
+  margin-bottom: 1rem;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #000;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  outline: none;
   font-size: 1rem;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
 }
 
-.auth-container button[type="submit"] {
+.auth-box input::placeholder {
+  color: #eee;
+}
+
+/* ----------------- Submit Button ----------------- */
+.auth-box button[type="submit"] {
   width: 100%;
-  padding: 0.85rem;
-  border: none;
-  border-radius: 10px;
-  background: #ff7043;
+  padding: 12px;
+  background-color: #ff6b3d;
   color: white;
   font-weight: bold;
-  font-size: 1.05rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.auth-container button[type="submit"]:hover {
-  background: #ff3d00;
-  transform: translateY(-1px);
+.auth-box button[type="submit"]:hover {
+  background-color: #e45a2c;
+  transform: scale(1.02);
 }
 
-.back-btn {
-  background: #ffffffcc;
-  color: #333;
-  border: none;
-  padding: 0.5rem 1rem;
+/* ----------------- Toggle Text ----------------- */
+.toggle {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #eee;
+}
+
+.toggle span {
+  color: #ffb88e;
   font-weight: bold;
-  font-size: 0.9rem;
-  border-radius: 8px;
   cursor: pointer;
-  position: absolute;
-  top: -12px;
-  left: -12px;
+  text-decoration: underline;
 }
 
-.back-btn:hover {
-  background: #eee;
+/* ----------------- Error Message ----------------- */
+.error {
+  margin-top: 10px;
+  color: #ffcccc;
+  font-weight: bold;
+}
+
+/* ----------------- Top-Right Close Button ----------------- */
+.back-btn-top {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.back-btn-top:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
