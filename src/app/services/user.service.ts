@@ -4,38 +4,63 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-  private storageKey = 'foodiee-user';
+  private usersKey = 'foodiee-users';      // Array of all users
+  private sessionKey = 'foodiee-session';  // Currently logged-in user email
 
   constructor() {}
 
+  private generateToken(): string {
+    return Math.random().toString(36).substr(2) + Date.now().toString(36);
+  }
+
+  // Signup and store multiple users
   signup(email: string, password: string): boolean {
-    const user = {
+    const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
+
+    const exists = users.find((u: any) => u.email === email);
+    if (exists) return false;
+
+    const newUser = {
       email,
       password,
-      joined: new Date().toISOString()
+      joined: new Date().toISOString(),
+      token: this.generateToken()
     };
-    localStorage.setItem(this.storageKey, JSON.stringify(user));
+
+    users.push(newUser);
+    localStorage.setItem(this.usersKey, JSON.stringify(users));
+    localStorage.setItem(this.sessionKey, email); // set current session
     return true;
   }
 
+  // Login from stored array
   login(email: string, password: string): boolean {
-    const userData = localStorage.getItem(this.storageKey);
-    if (!userData) return false;
+    const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
 
-    const user = JSON.parse(userData);
-    return user.email === email && user.password === password;
+    const found = users.find((u: any) => u.email === email && u.password === password);
+    if (found) {
+      localStorage.setItem(this.sessionKey, email); // store session
+      return true;
+    }
+    return false;
   }
 
-  getUser(): { email: string; password: string; joined: string } | null {
-    const user = localStorage.getItem(this.storageKey);
-    return user ? JSON.parse(user) : null;
-  }
-
-  logout(): void {
-    localStorage.removeItem(this.storageKey);
-  }
-
+  // Check login status
   isLoggedIn(): boolean {
-    return !!this.getUser();
+    return !!localStorage.getItem(this.sessionKey);
+  }
+
+  // Get current user info
+  getUser(): any | null {
+    const email = localStorage.getItem(this.sessionKey);
+    if (!email) return null;
+
+    const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
+    return users.find((u: any) => u.email === email) || null;
+  }
+
+  // Logout only clears session
+  logout(): void {
+    localStorage.removeItem(this.sessionKey);
   }
 }
